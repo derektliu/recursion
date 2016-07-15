@@ -4,7 +4,7 @@
 // but you don't so you're going to write it from scratch:
 
 var stringifyJSON = function(obj) {
-	
+
   var resultString = '';
 
   // Check for Number or Boolean
@@ -13,12 +13,13 @@ var stringifyJSON = function(obj) {
     return '' + obj;
 
   } else {
-    // Chcek for String
+
+    // Check for String
     if (obj.constructor === String) {
+
       return '"' + obj + '"';
 
     } else {
 
-    }
   }
 };
