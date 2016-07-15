@@ -4,5 +4,21 @@
 // but you don't so you're going to write it from scratch:
 
 var stringifyJSON = function(obj) {
-  // your code goes here
+	
+  var resultString = '';
+
+  // Check for Number or Boolean
+  if (obj.constructor === Number || obj.constructor === Boolean) {
+
+    return '' + obj;
+
+  } else {
+    // Chcek for String
+    if (obj.constructor === String) {
+      return '"' + obj + '"';
+
+    } else {
+
+    }
+  }
 };
