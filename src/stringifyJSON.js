@@ -5,21 +5,29 @@
 
 var stringifyJSON = function(obj) {
 
-  var resultString = '';
+  var resultString = [];
+
+  // Check for Null
+  if (obj === null) {
+    return 'null';
 
   // Check for Number or Boolean
-  if (obj.constructor === Number || obj.constructor === Boolean) {
-
+  } else if (obj.constructor === Number || obj.constructor === Boolean) {
     return '' + obj;
 
-  } else {
+  // Check for String
+  } else if (obj.constructor === String) {
+    return '"' + obj + '"';
 
-    // Check for String
-    if (obj.constructor === String) {
-
-      return '"' + obj + '"';
-
+  // Check for Array
+  } else if (obj.constructor === Array) {
+    if (obj[0] === undefined) {
+      return '[]';
     } else {
-
+      for (var key in obj) {
+        resultString.push(stringifyJSON(obj[key]));
+      }
+      return '[' + resultString + ']';
+    }
   }
 };
