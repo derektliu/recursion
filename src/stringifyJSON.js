@@ -29,5 +29,14 @@ var stringifyJSON = function(obj) {
       }
       return '[' + resultString + ']';
     }
+
+  // Check for Object
+  } else if ( obj.constructor === Object) {
+    for (var key in obj) {
+      if (obj[key] !== undefined && typeof obj[key] !== 'function') {
+        resultString.push('"' + key + '":' + stringifyJSON(obj[key]));
+      }
+    }
+    return '{' + resultString + '}';
   }
 };
